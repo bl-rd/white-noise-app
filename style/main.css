@@ -5,3 +5,8 @@
 html {
   background: var(--background);
 }
+
+.hide {
+  display: none;
+  visibility: hidden;
+}

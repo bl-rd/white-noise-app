@@ -7,10 +7,11 @@ export default class Noise {
     this.bufferSize = 4096;
     this.node = null;
     this.playing = false;
+    this.startTime = null;
   }
 
   /**
-   * 
+   * Start the timer. Obvs.
    */
   start() {
     if (!this.node) {
@@ -18,18 +19,31 @@ export default class Noise {
     }
     this.node.connect(this.audioContext.destination);
     this.playing = true;
+    this.startTime = new Date();
   }
 
   /**
-   * 
+   * Stop the timer.
    */
   stop() {
     this.node.disconnect(this.audioContext.destination);
     this.playing = false;
+    this.startTime = null;
   }
 
   /**
-   * 
+   * How long has the timer been going for?
+   */
+  duration() {
+    if (this.playing) {
+      const now = new Date();
+      return now - this.startTime;
+    }
+    return false;
+  }
+
+  /**
+   * Get the audio processor node
    * @returns {ScriptProcessorNode}
    */
   getNode() {
