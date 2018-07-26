@@ -5,15 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-  <script src="components/IntroSlide.js"></script>
   <title>White Noise</title>
 </head>
 <body>
-  <intro-slide></intro-slide>
-  <intro-slide></intro-slide>
+  <!-- show the on-boarding slides, if needed
+  <div class="on-boarding">
+    <intro-slide></intro-slide>
+    <intro-slide></intro-slide>
+  </div>
+  -->
+  
+  <header>
+    <h1>White noise app</h1>
+  </header>
+  <main>
+    <button>🌙</button>
+    </div>
+  </main>
+
+
   <script type="module">
-    // import Noise from './src/pink-noise.js';
-    // Noise.pinkNoise();
+    import Noise from './src/pink-noise.js';
+    
+    const button = document.querySelector('button');
+    const noise = new Noise();
+
+    button.addEventListener('click', event => {
+      if (noise.playing) {
+        noise.stop();
+        button.textContent = '🌙';
+      }
+      else {
+        noise.start();
+        button.textContent = '😣';
+      }
+    });
+    
   </script>
 
   <!-- https://developers.google.com/web/fundamentals/design-and-ux/input/touch/ -->
@@ -28,5 +55,7 @@
       <slot name="content">Default content</slot>
     </div>
   </template>
+
+  <script async src="components/IntroSlide.js"></script>
 </body>
 </html>
