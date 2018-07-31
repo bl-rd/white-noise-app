@@ -2,8 +2,82 @@
   --background: #ededed;
 }
 
-html {
-  background: var(--background);
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+  width: 100vw;
+  height: 100vh;
+  /* background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB); */
+  background-image: linear-gradient(to right bottom, #051937, #102647, #1b3358, #26416a, #314f7c);
+  /* background: radial-gradient(circle, rgba(35,72,126,1) 0%, rgba(9,9,121,1) 31%, rgba(2,0,36,1) 100%); */
+	background-size: 400% 400%;
+  animation: thing 15s ease infinite;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+.button-wrapper {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter-message {
+  grid-column: 2 / 3;
+  grid-row: 3 / 3;
+  display: flex;
+  align-items: flex-end;
+}
+
+p {
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+button {
+  width: 25vw;
+  height: 25vw;
+  border-radius: 50%;
+  border: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  background: red;
+}
+
+@keyframes thing {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hide {

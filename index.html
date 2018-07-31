@@ -6,9 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
   <title>White Noise</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style/main.css" />
 </head>
 <body>
+
   <!-- show the on-boarding slides, if needed
   <div class="on-boarding">
     <intro-slide></intro-slide>
@@ -20,56 +22,16 @@
     <h1>White noise app</h1>
   </header>
   <main>
-    <button>🌙</button>
-    <p class="hide"></p>
+    <div class="button-wrapper">
+      <button>🌙</button>
+    </div>
+    <div class="counter-message">
+      <p class="hide"></p>
+    </div>
   </main>
 
 
-  <script type="module">
-    import Noise from './src/pink-noise.js';
-    
-    const button = document.querySelector('button');
-    const timer = document.querySelector('p');
-    const noise = new Noise();
-    // default to 45 minutes
-    const minutes = 45;
-    const total = 60 * 1000 * minutes;
-
-    button.addEventListener('click', event => {
-      if (noise.playing) {
-        stopNoise();
-      }
-      else {
-        startNoise();
-      }
-    });
-
-    function updateTimePlayed() {
-      const duration = new Date(total - noise.duration());
-      const minutes = duration.getMinutes();
-      const seconds = duration.getSeconds();
-      timer.textContent = `White noise will stop in ${minutes}:${seconds}`;
-
-      if (duration.getTime() <= 0) {
-        stopNoise();
-      }
-    }
-
-    function stopNoise() {
-      noise.stop();
-      button.textContent = '🌙';
-      window.clearInterval(updateTimePlayed);
-      timer.classList.add('hide');
-    }
-
-    function startNoise() {
-      noise.start();
-      button.textContent = '😣';
-      window.setInterval(updateTimePlayed, 1000);
-      timer.classList.remove('hide');
-    }
-    
-  </script>
+  <script type="module" src="src/main.js"></script>
 
   <!-- https://developers.google.com/web/fundamentals/design-and-ux/input/touch/ -->
   <template id="intro-slide" class="intro-slide">
