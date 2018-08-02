@@ -1,5 +1,6 @@
 :root {
   --background: #ededed;
+  --active-color: red;
 }
 
 * {
@@ -12,11 +13,10 @@
 body {
   width: 100vw;
   height: 100vh;
-  /* background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB); */
-  background-image: linear-gradient(to right bottom, #051937, #102647, #1b3358, #26416a, #314f7c);
-  /* background: radial-gradient(circle, rgba(35,72,126,1) 0%, rgba(9,9,121,1) 31%, rgba(2,0,36,1) 100%); */
+  /* background-image: linear-gradient(to right bottom, #051937, #102647, #1b3358, #26416a, #314f7c); */
+  background-color: #102647;
 	background-size: 400% 400%;
-  animation: thing 15s ease infinite;
+  /* animation: thing 15s ease infinite; */
   display: flex;
   flex-direction: column;
 }
@@ -60,12 +60,23 @@ button {
   height: 25vw;
   border-radius: 50%;
   border: none;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease;
   cursor: pointer;
 }
 
+button.play {
+  background: var(--active-color);
+  position: absolute;
+  animation: grow 0.5s ease-out;
+  animation-fill-mode: forwards;
+}
+
+body.play {
+  background: var(--active-color);
+}
+
 button:hover {
-  background: red;
+  background: var(--active-color);
 }
 
 @keyframes thing {
@@ -77,6 +88,13 @@ button:hover {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@keyframes grow {
+  100% {
+    width: 120vh;
+    height: 120vh;
   }
 }
 

@@ -12,7 +12,14 @@ button.addEventListener('click', event => {
     stopNoise();
   }
   else {
+    button.classList.add('play');
+    button.disabled = true;
     startNoise();
+    // when the animation is finished then remove the button from the DOM
+    button.addEventListener('animationend', e => {
+      document.querySelector('body').classList.add('play');
+      setTimeout(() => button.parentElement.removeChild(button), 600);
+    })
   }
 });
 
