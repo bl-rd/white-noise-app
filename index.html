@@ -4,20 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
   <title>White Noise</title>
   <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style/main.css" />
 </head>
 <body>
-
-  <!-- show the on-boarding slides, if needed
-  <div class="on-boarding">
-    <intro-slide></intro-slide>
-    <intro-slide></intro-slide>
-  </div>
-  -->
-
   <header>
     <h1>White noise app</h1>
   </header>
@@ -36,21 +27,7 @@
   </main>
 
 
-  <script type="module" src="src/main.js"></script>
+  <script async type="module" src="src/main.js"></script>
 
-  <!-- https://developers.google.com/web/fundamentals/design-and-ux/input/touch/ -->
-  <template id="intro-slide" class="intro-slide">
-    <h2>
-      <slot name="heading">Default Heading</slot>
-    </h2>
-    <div class="image">
-      <slot name="image">image goes here...</slot>
-    </div>
-    <div class="content">
-      <slot name="content">Default content</slot>
-    </div>
-  </template>
-
-  <script async src="components/IntroSlide.js"></script>
 </body>
 </html>
