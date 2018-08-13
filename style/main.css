@@ -1,12 +1,14 @@
 :root {
-  --background: #ededed;
-  --active-color: red;
+  --background: #195777;
+  --active-color: #2D2D3C;
+  --animation-duration: 1.2s;
 }
 
 * {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
 }
 
 
@@ -14,7 +16,7 @@ body {
   width: 100vw;
   height: 100vh;
   /* background-image: linear-gradient(to right bottom, #051937, #102647, #1b3358, #26416a, #314f7c); */
-  background-color: #102647;
+  background-color: var(--background);
 	background-size: 400% 400%;
   /* animation: thing 15s ease infinite; */
   display: flex;
@@ -32,6 +34,10 @@ main {
 h1 {
   color: white;
   text-align: center;
+  visibility: hidden;
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
 }
 
 .button-wrapper {
@@ -47,12 +53,19 @@ h1 {
   grid-row: 3 / 3;
   display: flex;
   align-items: flex-end;
+  justify-content: center;
 }
 
 p {
   color: white;
   text-align: center;
   margin-bottom: 2rem;
+  opacity: 0;
+}
+
+p.active {
+  animation: fadein var(--animation-duration) ease-out;
+  animation-fill-mode: forwards;
 }
 
 button {
@@ -62,12 +75,21 @@ button {
   border: none;
   transition: background-color 0.2s ease;
   cursor: pointer;
+  background-color: var(--active-color);
 }
 
 button.play {
   background: var(--active-color);
   position: absolute;
-  animation: grow 0.5s ease-out;
+  animation: grow var(--animation-duration) ease-in;
+  animation-fill-mode: forwards;
+}
+
+#button-text {
+  color: #eee;
+}
+#button-text.play {
+  animation: fadeout 0.1s ease-in;
   animation-fill-mode: forwards;
 }
 
@@ -92,9 +114,25 @@ button:hover {
 }
 
 @keyframes grow {
+  30% {
+    width: 18vw;
+    height: 18vw;
+  }
   100% {
     width: 120vh;
     height: 120vh;
+  }
+}
+
+@keyframes fadein {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  100% {
+    opacity: 0;
   }
 }
 
