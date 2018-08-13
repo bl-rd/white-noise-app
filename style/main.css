@@ -40,12 +40,16 @@ h1 {
   top: -9999px;
 }
 
+.centre-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .button-wrapper {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .counter-message {
@@ -54,6 +58,34 @@ h1 {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+}
+
+.stop-button-wrapper {
+  grid-column: 3 / 3;
+  align-items: flex-start !important;
+}
+
+.stop-button-wrapper button {
+  transform: translateY(-200%);
+  background-color: rgba(255, 255, 255, 0) !important;
+  border: .25rem solid #eee;
+  color: #eee;
+  width: 14vw;
+  height: 14vw;
+  opacity: 0.5;;
+}
+
+.stop-button-wrapper button:hover,
+.stop-button-wrapper button:active {
+  opacity: 1;
+}
+
+.stop-button-wrapper button.play {
+  animation: appear-down 1.2s ease-out 2.5s forwards;
+}
+
+.stop-button-wrapper button.disappear {
+  animation: go-away-up 0.3s ease-in forwards;
 }
 
 p {
@@ -133,6 +165,18 @@ button:hover {
 @keyframes fadeout {
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes appear-down {
+  100% {
+    transform: translateY(1rem);
+  }
+}
+
+@keyframes go-away-up {
+  100% {
+    transform: translateY(-200%);
   }
 }
 
