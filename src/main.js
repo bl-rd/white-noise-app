@@ -58,7 +58,7 @@ function updateTimePlayed() {
   timer.textContent = `${minutes}:${seconds}`;
 
   if (duration.getTime() <= 0) {
-    stopNoise();
+    reset();
   }
 }
 
