@@ -1,4 +1,4 @@
-const appCache = '1.0.0';
+const appCache = '0.0.1';
 const expectedCaches = [appCache];
 
 const filesToCache = [
@@ -6,7 +6,13 @@ const filesToCache = [
   'index.html',
   'src/main.js',
   'src/pink-noise.js',
-  'style/main.css'
+  'style/main.css',
+  'images/circle-128.png',
+  'images/circle-144.png',
+  'images/circle-152.png',
+  'images/circle-192.png',
+  'images/circle-256.png',
+  'images/circle-512.png'
 ];
 
 self.addEventListener('install', event => {

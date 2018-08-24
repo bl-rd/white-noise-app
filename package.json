@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "hs -o"
+    "start": "hs -o -c-1"
   },
   "keywords": [],
   "author": "",

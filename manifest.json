@@ -1,0 +1,40 @@
+{
+  "short_name": "White Noise",
+  "name": "White Noise",
+  "icons": [
+    {
+      "src": "images/circle-128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "images/circle-144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "images/circle-152.png",
+      "type": "image/png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "images/circle-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "images/circle-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "images/circle-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#e5e5e5",
+  "display": "standalone",
+  "theme_color": "#e5e5e5"
+}
