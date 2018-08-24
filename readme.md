@@ -18,3 +18,4 @@ To keep the app footprint small it is only using ES2015+ javascript. The idea be
 - Add JS transpiling?
 - Add a `<noscript>` prompt
 - Add some links
+- Add twitter card code!
