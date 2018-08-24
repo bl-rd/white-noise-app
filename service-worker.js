@@ -1,4 +1,4 @@
-const appCache = '0.0.1';
+const appCache = '0.0.2';
 const expectedCaches = [appCache];
 
 const filesToCache = [
